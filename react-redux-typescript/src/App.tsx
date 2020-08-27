@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 
 // Redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { NotesState } from "./noteReducer";
 
 // Component
@@ -12,12 +12,21 @@ function App() {
   const notes = useSelector<NotesState, NotesState["notes"]>(
     (state) => state.notes
   );
+
+  const dispatch = useDispatch();
+
+  const addNote = (note: string) => {
+    dispatch({ type: "ADD_NOTE", payload: note });
+  };
+
   return (
     <div>
-      <NewNoteInput addNote={alert} />
+      <NewNoteInput addNote={addNote} />
       <hr />
       <ul>
-        <li>Some note</li>
+        {notes.map((note) => {
+          return <li key={note}>{note}</li>;
+        })}
       </ul>
     </div>
   );
