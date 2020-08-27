@@ -3,11 +3,11 @@ import "./App.css";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";
-import { NotesState } from "./noteReducer";
-import { addNote } from "./actions";
+import { NotesState } from "./redux/noteReducer";
+import { addNote } from "./redux/actions";
 
 // Component
-import NewNoteInput from "./NewNoteInput";
+import NewNoteInput from "./components/NewNoteInput";
 
 function App() {
   const notes = useSelector<NotesState, NotesState["notes"]>(
