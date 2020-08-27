@@ -1,12 +1,17 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+
+// Component
+import NewNoteInput from "./NewNoteInput";
 
 function App() {
   return (
-    <div className="App">
-      <input type="text" name="note" placeholder="Note" />
-      <button>Add note</button>
+    <div>
+      <NewNoteInput addNote={alert} />
+      <hr />
+      <ul>
+        <li>Some note</li>
+      </ul>
     </div>
   );
 }
